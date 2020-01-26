@@ -1,8 +1,8 @@
-package com.rayzor.fireemblemapi.controllers;
+package com.github.raymondtang310.fireemblemapi.controllers;
 
-import com.rayzor.fireemblemapi.models.Character;
-import com.rayzor.fireemblemapi.models.CharactersResponse;
-import com.rayzor.fireemblemapi.repositories.CharactersRepository;
+import com.github.raymondtang310.fireemblemapi.models.CharactersResponse;
+import com.github.raymondtang310.fireemblemapi.repositories.CharactersRepository;
+import com.github.raymondtang310.fireemblemapi.models.Character;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.rayzor.fireemblemapi.models;
+package com.github.raymondtang310.fireemblemapi.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

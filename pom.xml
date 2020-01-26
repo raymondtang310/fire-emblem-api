@@ -8,7 +8,7 @@
         <version>2.2.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.rayzor</groupId>
+    <groupId>com.github.raymondtang310</groupId>
     <artifactId>fire-emblem-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Fire Emblem API</name>
