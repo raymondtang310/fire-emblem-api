@@ -12,9 +12,24 @@ import org.springframework.core.env.StandardEnvironment;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * FireEmblemAPIApplication is the main program for running this Spring Boot application.
+ * <p>
+ * Created February 02, 2020.
+ *
+ * @author Raymond Tang
+ * @version %I%, %G%
+ * @since 1.0
+ */
 @SpringBootApplication
 public class FireEmblemAPIApplication {
 
+    /**
+     * Runs this Spring Boot application with the specified arguments.
+     *
+     * @param args the arguments to be used to run this Spring Boot application
+     * @since 1.0
+     */
     public static void main(String[] args) {
         // Set environment variables from dotenv file for local environment
         if (System.getenv("APP_ENV") == null) {

@@ -3,6 +3,16 @@ package com.github.raymondtang310.fireemblemapi.models;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * CharactersResponse is the class of an object that serializes into a JSON response containing a list of Fire
+ * Emblem characters.
+ * <p>
+ * Created February 02, 2020.
+ *
+ * @author Raymond Tang
+ * @version %I%, %G%
+ * @since 1.0
+ */
 public class CharactersResponse {
     private List<Character> characters;
 

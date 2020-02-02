@@ -12,10 +12,26 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.env.ConfigurableEnvironment;
 
+/**
+ * FireEmblemAPIApplicationTest is a class for unit testing {@link FireEmblemAPIApplication}.
+ * <p>
+ * Created February 02, 2020.
+ *
+ * @author Raymond Tang
+ * @version %I%, %G%
+ * @since 1.0
+ */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Dotenv.class, SpringApplication.class, FireEmblemAPIApplication.class})
 public class FireEmblemAPIApplicationTest {
 
+    /**
+     * Tests that the <code>main</code> method loads {@link Dotenv} environment variables when this application is
+     * running in a local environment.
+     *
+     * @throws Exception If <code>PowerMockito.whenNew().withArguments()</code> throws an {@link Exception}
+     * @since 1.0
+     */
     @Test
     public void testMainShouldLoadDotenvInLocalEnvironment() throws Exception {
         String[] args = {};
@@ -34,8 +50,14 @@ public class FireEmblemAPIApplicationTest {
         Dotenv.load();
     }
 
+    /**
+     * Tests that the <code>main</code> method does NOT load {@link Dotenv} environment variables when this
+     * application is running in a deployed environment.
+     *
+     * @since 1.0
+     */
     @Test
-    public void testMainShouldNotLoadDotenvInDeplyoyedEnvironment() {
+    public void testMainShouldNotLoadDotenvInDeployedEnvironment() {
         String[] args = {};
         PowerMockito.mockStatic(System.class);
         PowerMockito.when(System.getenv("APP_ENV")).thenReturn("production");
@@ -48,6 +70,13 @@ public class FireEmblemAPIApplicationTest {
         Dotenv.load();
     }
 
+    /**
+     * Tests that the <code>main</code> method runs an instance of {@link SpringApplicationBuilder} when this
+     * application is running in a local environment.
+     *
+     * @throws Exception If <code>PowerMockito.whenNew().withArguments()</code> throws an {@link Exception}
+     * @since 1.0
+     */
     @Test
     public void testMainShouldRunSpringApplicationBuilderInLocalEnvironment() throws Exception {
         String[] args = {};
@@ -65,6 +94,12 @@ public class FireEmblemAPIApplicationTest {
         Mockito.verify(springApplicationBuilderMock, Mockito.times(1)).run(args);
     }
 
+    /**
+     * Tests that the <code>main</code> method runs {@link SpringApplication} when this
+     * application is running in a deployed environment.
+     *
+     * @since 1.0
+     */
     @Test
     public void testMainShouldRunSpringApplicationInDeployedEnvironment() {
         String[] args = {};

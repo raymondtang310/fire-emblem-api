@@ -9,6 +9,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Character is the class of an object that is mapped to from a document in the <code>characters</code> collection in
+ * the <code>fireEmblemData</code> MongoDB database.
+ * <p>
+ * A Character object encapsulates data on a Fire Emblem character, which includes:
+ * <ul>
+ * <li>the name of the character
+ * <li>a primary image of the character
+ * <li>additional images of the characters
+ * <li>games in which the character has appeared
+ * <li>titles that the character is known by
+ * <li>voice actors who have portrayed the character
+ * </ul>
+ * <p>
+ * Created February 02, 2020.
+ *
+ * @author Raymond Tang
+ * @version %I%, %G%
+ * @since 1.0
+ */
 @Document(collection = "characters")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Character {

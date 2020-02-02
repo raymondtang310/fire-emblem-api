@@ -16,6 +16,15 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * CharactersControllerTest is a class for unit testing {@link CharactersController}.
+ * <p>
+ * Created February 02, 2020.
+ *
+ * @author Raymond Tang
+ * @version %I%, %G%
+ * @since 1.0
+ */
 @RunWith(MockitoJUnitRunner.class)
 @PrepareForTest({CharactersController.class})
 public class CharactersControllerTest {
@@ -24,6 +33,9 @@ public class CharactersControllerTest {
     @InjectMocks
     private CharactersController controller = new CharactersController();
 
+    /**
+     * Tests that the <code>getCharactersByName</code> method finds {@link Character}s by the specified name.
+     */
     @Test
     public void testGetCharactersByNameShouldFindCharactersByName() {
         String name = "Byleth";
@@ -33,6 +45,10 @@ public class CharactersControllerTest {
         Mockito.verify(repository, Mockito.times(1)).findByName(name);
     }
 
+    /**
+     * Tests that the <code>getCharactersByName</code> method returns a {@link CharactersResponse} containing a
+     * {@link List} of {@link Character}s that have the specified name
+     */
     @Test
     public void testGetCharactersByNameShouldReturnCharactersResponse() {
         String name = "Byleth";
