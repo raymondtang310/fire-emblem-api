@@ -13,8 +13,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({Dotenv.class, SpringApplication.class, FireEmblemApiApplication.class})
-public class FireEmblemApiApplicationTest {
+@PrepareForTest({Dotenv.class, SpringApplication.class, FireEmblemAPIApplication.class})
+public class FireEmblemAPIApplicationTest {
 
     @Test
     public void testMainShouldLoadDotenvInLocalEnvironment() throws Exception {
@@ -28,7 +28,7 @@ public class FireEmblemApiApplicationTest {
         PowerMockito.whenNew(SpringApplicationBuilder.class).withArguments(Mockito.any(Class.class)).thenReturn(springApplicationBuilderMock);
         PowerMockito.doReturn(springApplicationBuilderMock).when(springApplicationBuilderMock).environment(Mockito.any(ConfigurableEnvironment.class));
 
-        FireEmblemApiApplication.main(args);
+        FireEmblemAPIApplication.main(args);
 
         PowerMockito.verifyStatic(Dotenv.class, Mockito.times(1));
         Dotenv.load();
@@ -42,7 +42,7 @@ public class FireEmblemApiApplicationTest {
         PowerMockito.mockStatic(Dotenv.class);
         PowerMockito.mockStatic(SpringApplication.class);
 
-        FireEmblemApiApplication.main(args);
+        FireEmblemAPIApplication.main(args);
 
         PowerMockito.verifyStatic(Dotenv.class, new NoMoreInteractions());
         Dotenv.load();
@@ -60,7 +60,7 @@ public class FireEmblemApiApplicationTest {
         PowerMockito.whenNew(SpringApplicationBuilder.class).withArguments(Mockito.any(Class.class)).thenReturn(springApplicationBuilderMock);
         PowerMockito.doReturn(springApplicationBuilderMock).when(springApplicationBuilderMock).environment(Mockito.any(ConfigurableEnvironment.class));
 
-        FireEmblemApiApplication.main(args);
+        FireEmblemAPIApplication.main(args);
 
         Mockito.verify(springApplicationBuilderMock, Mockito.times(1)).run(args);
     }
@@ -72,9 +72,9 @@ public class FireEmblemApiApplicationTest {
         PowerMockito.when(System.getenv("APP_ENV")).thenReturn("production");
         PowerMockito.mockStatic(SpringApplication.class);
 
-        FireEmblemApiApplication.main(args);
+        FireEmblemAPIApplication.main(args);
 
         PowerMockito.verifyStatic(SpringApplication.class, Mockito.times(1));
-        SpringApplication.run(FireEmblemApiApplication.class, args);
+        SpringApplication.run(FireEmblemAPIApplication.class, args);
     }
 }

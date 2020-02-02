@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
-public class FireEmblemApiApplication {
+public class FireEmblemAPIApplication {
 
     public static void main(String[] args) {
         // Set environment variables from dotenv file for local environment
@@ -24,7 +24,7 @@ public class FireEmblemApiApplication {
                     .collect(
                             Collectors.toMap(DotenvEntry::getKey, DotenvEntry::getValue));
 
-            new SpringApplicationBuilder(FireEmblemApiApplication.class)
+            new SpringApplicationBuilder(FireEmblemAPIApplication.class)
                     .environment(new StandardEnvironment() {
                         @Override
                         protected void customizePropertySources(MutablePropertySources propertySources) {
@@ -33,7 +33,7 @@ public class FireEmblemApiApplication {
                         }
                     }).run(args);
         } else {
-            SpringApplication.run(FireEmblemApiApplication.class, args);
+            SpringApplication.run(FireEmblemAPIApplication.class, args);
         }
     }
 
