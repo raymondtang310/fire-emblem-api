@@ -3,6 +3,8 @@ package com.github.raymondtang310.fireemblemapi.controllers;
 import com.github.raymondtang310.fireemblemapi.models.Character;
 import com.github.raymondtang310.fireemblemapi.models.CharactersResponse;
 import com.github.raymondtang310.fireemblemapi.repositories.CharactersRepository;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +37,11 @@ public class CharactersController {
      * @since 1.0
      */
     @GetMapping
-    public CharactersResponse getCharactersByName(@RequestParam String name) {
+    @ApiOperation(value = "Finds characters by name",
+            notes = "Gets characters that have the specified name.",
+            response = CharactersResponse.class)
+    public CharactersResponse getCharactersByName(@ApiParam(value = "The name of the character(s) to search for", required = true)
+                                                  @RequestParam String name) {
         List<Character> characters = repository.findByName(name);
         return new CharactersResponse(characters);
     }

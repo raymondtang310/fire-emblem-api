@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
  */
 @SpringBootApplication
 public class FireEmblemAPIApplication {
-
     /**
      * Runs this Spring Boot application with the specified arguments.
      *
@@ -51,5 +50,4 @@ public class FireEmblemAPIApplication {
             SpringApplication.run(FireEmblemAPIApplication.class, args);
         }
     }
-
 }
