@@ -4,7 +4,6 @@ import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.mockito.internal.verification.NoMoreInteractions;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -66,7 +65,7 @@ public class FireEmblemAPIApplicationTest {
 
         FireEmblemAPIApplication.main(args);
 
-        PowerMockito.verifyStatic(Dotenv.class, new NoMoreInteractions());
+        PowerMockito.verifyStatic(Dotenv.class, Mockito.never());
         Dotenv.load();
     }
 
