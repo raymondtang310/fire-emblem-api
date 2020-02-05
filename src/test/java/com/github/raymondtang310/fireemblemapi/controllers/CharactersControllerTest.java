@@ -11,6 +11,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,31 +35,41 @@ public class CharactersControllerTest {
     private CharactersController controller = new CharactersController();
 
     /**
-     * Tests that the <code>getCharactersByName</code> method finds {@link Character}s by the specified name.
+     * Tests that the <code>getCharacters</code> method finds {@link Character}s by the specified name if the specified
+     * name is not null.
      */
     @Test
-    public void testGetCharactersByNameShouldFindCharactersByName() {
-        String name = "Byleth";
-
-        controller.getCharactersByName(name);
-
-        Mockito.verify(repository, Mockito.times(1)).findByName(name);
-    }
-
-    /**
-     * Tests that the <code>getCharactersByName</code> method returns a {@link CharactersResponse} containing a
-     * {@link List} of {@link Character}s that have the specified name
-     */
-    @Test
-    public void testGetCharactersByNameShouldReturnCharactersResponse() {
+    public void testGetCharactersShouldFindCharactersByNameIfNameIsNotNull() {
         String name = "Byleth";
         Character character = new Character();
         character.setName(name);
         List<Character> characters = Collections.singletonList(character);
         Mockito.doReturn(characters).when(repository).findByName(name);
 
-        CharactersResponse response = controller.getCharactersByName(name);
+        CharactersResponse response = controller.getCharacters(name);
 
+        Mockito.verify(repository, Mockito.times(1)).findByName(name);
+        Mockito.verify(repository, Mockito.never()).findAll();
+        assertEquals(new CharactersResponse(characters), response);
+    }
+
+    /**
+     * Tests that the <code>getCharacters</code> method finds all {@link Character}s if the specified name is null.
+     */
+    @Test
+    public void testGetCharactersShouldFindAllCharactersIfNameIsNull() {
+        String name = null;
+        Character character1 = new Character();
+        character1.setName("Byleth");
+        Character character2 = new Character();
+        character2.setName("Ike");
+        List<Character> characters = Arrays.asList(character1, character2);
+        Mockito.doReturn(characters).when(repository).findAll();
+
+        CharactersResponse response = controller.getCharacters(name);
+
+        Mockito.verify(repository, Mockito.never()).findByName(name);
+        Mockito.verify(repository, Mockito.times(1)).findAll();
         assertEquals(new CharactersResponse(characters), response);
     }
 }

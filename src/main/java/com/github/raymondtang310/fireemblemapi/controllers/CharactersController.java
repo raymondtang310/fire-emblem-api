@@ -30,19 +30,20 @@ public class CharactersController {
     private CharactersRepository repository;
 
     /**
-     * Gets {@link Character}s that have the specified name.
+     * Gets {@link Character}s. {@link Character}s are filtered by the specified name if the specified name is not
+     * <code>null</code>.
      *
      * @param name the name of the {@link Character}(s) to search for
      * @return a {@link CharactersResponse} containing a {@link List} of {@link Character}s that have the specified name
      * @since 1.0
      */
     @GetMapping
-    @ApiOperation(value = "Finds characters by name",
-            notes = "Gets characters that have the specified name.",
+    @ApiOperation(value = "Finds characters",
+            notes = "Returns Fire Emblem characters. Optionally, characters can be filtered by name.",
             response = CharactersResponse.class)
-    public CharactersResponse getCharactersByName(@ApiParam(value = "The name of the character(s) to search for", required = true)
-                                                  @RequestParam String name) {
-        List<Character> characters = repository.findByName(name);
+    public CharactersResponse getCharacters(@ApiParam(value = "The name of the character(s) to search for", example = "Byleth")
+                                            @RequestParam(required = false) String name) {
+        List<Character> characters = name != null ? repository.findByName(name) : repository.findAll();
         return new CharactersResponse(characters);
     }
 }
