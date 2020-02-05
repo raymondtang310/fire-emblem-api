@@ -4,6 +4,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import io.github.cdimascio.dotenv.DotenvEntry;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.MutablePropertySources;
@@ -21,7 +22,8 @@ import java.util.stream.Collectors;
  * @version %I%, %G%
  * @since 1.0
  */
-@SpringBootApplication
+// Disable automatic configuration of security so that login is not required
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class FireEmblemAPIApplication {
     /**
      * Runs this Spring Boot application with the specified arguments.
