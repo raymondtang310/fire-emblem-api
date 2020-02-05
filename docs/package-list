@@ -1,5 +1,6 @@
 
 com.github.raymondtang310.fireemblemapi
+com.github.raymondtang310.fireemblemapi.configurations
 com.github.raymondtang310.fireemblemapi.controllers
 com.github.raymondtang310.fireemblemapi.models
 com.github.raymondtang310.fireemblemapi.repositories
