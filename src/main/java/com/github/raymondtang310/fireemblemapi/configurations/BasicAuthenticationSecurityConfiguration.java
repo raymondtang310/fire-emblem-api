@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  *
  * @author Raymond Tang
  * @version %I%, %G%
- * @since 1.0
+ * @since 1.0.0
  */
 @Configuration
 @Profile("test") // Enable basic authentication for the test environment only
@@ -28,6 +28,7 @@ public class BasicAuthenticationSecurityConfiguration extends WebSecurityConfigu
      *
      * @param httpSecurity the {@link HttpSecurity} to configure
      * @throws Exception if an error occurs while configuring the {@link HttpSecurity}
+     * @since 1.0.0
      */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -43,6 +44,7 @@ public class BasicAuthenticationSecurityConfiguration extends WebSecurityConfigu
      *
      * @param authenticationManagerBuilder the {@link AuthenticationManagerBuilder} for building authentication
      * @throws Exception if an error occurs while building authentication
+     * @since 1.0.0
      */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder)

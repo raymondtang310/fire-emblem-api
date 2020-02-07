@@ -11,9 +11,24 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 
+/**
+ * SwaggerConfiguration is a {@link Configuration} that sets up Swagger documentation for this Spring Boot application.
+ * <p>
+ * Created February 02, 2020.
+ *
+ * @author Raymond Tang
+ * @version %I%, %G%
+ * @since 1.0.0
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
+    /**
+     * Configures Swagger documentation for this Spring Boot application.
+     *
+     * @return a {@link Docket} configuring Swagger documentation for this Spring Boot application
+     * @since 1.0.0
+     */
     @Bean
     public Docket configure() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -23,7 +38,7 @@ public class SwaggerConfiguration {
                 .apiInfo(new ApiInfo(
                         "Fire Emblem API",
                         "REST API for providing Fire Emblem data",
-                        "1.0",
+                        "1.0.0",
                         null,
                         new Contact("Raymond Tang", "https://github.com/raymondtang310", "raymondtang310@gmail.com"),
                         "MIT License",

@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author Raymond Tang
  * @version %I%, %G%
- * @since 1.0
+ * @since 1.0.0
  */
 @RunWith(MockitoJUnitRunner.class)
 @PrepareForTest({CharactersController.class})
@@ -37,6 +37,8 @@ public class CharactersControllerTest {
     /**
      * Tests that the <code>getCharacters</code> method finds {@link Character}s by the specified name if the specified
      * name is not null.
+     *
+     * @since 1.0.0
      */
     @Test
     public void testGetCharactersShouldFindCharactersByNameIfNameIsNotNull() {
@@ -55,6 +57,8 @@ public class CharactersControllerTest {
 
     /**
      * Tests that the <code>getCharacters</code> method finds all {@link Character}s if the specified name is null.
+     *
+     * @since 1.0.0
      */
     @Test
     public void testGetCharactersShouldFindAllCharactersIfNameIsNull() {

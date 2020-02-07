@@ -18,7 +18,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
  *
  * @author Raymond Tang
  * @version %I%, %G%
- * @since 1.0
+ * @since 1.0.0
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Dotenv.class, SpringApplication.class, FireEmblemAPIApplication.class})
@@ -28,8 +28,8 @@ public class FireEmblemAPIApplicationTest {
      * Tests that the <code>main</code> method loads {@link Dotenv} environment variables when this application is
      * running in a local environment.
      *
-     * @throws Exception If <code>PowerMockito.whenNew().withArguments()</code> throws an {@link Exception}
-     * @since 1.0
+     * @throws Exception if an error occurs while executing this test
+     * @since 1.0.0
      */
     @Test
     public void testMainShouldLoadDotenvInLocalEnvironment() throws Exception {
@@ -50,10 +50,10 @@ public class FireEmblemAPIApplicationTest {
     }
 
     /**
-     * Tests that the <code>main</code> method does NOT load {@link Dotenv} environment variables when this
-     * application is running in a deployed environment.
+     * Tests that the <code>main</code> method does NOT load {@link Dotenv} environment variables when this application
+     * is running in a deployed environment.
      *
-     * @since 1.0
+     * @since 1.0.0
      */
     @Test
     public void testMainShouldNotLoadDotenvInDeployedEnvironment() {
@@ -73,8 +73,8 @@ public class FireEmblemAPIApplicationTest {
      * Tests that the <code>main</code> method runs an instance of {@link SpringApplicationBuilder} when this
      * application is running in a local environment.
      *
-     * @throws Exception If <code>PowerMockito.whenNew().withArguments()</code> throws an {@link Exception}
-     * @since 1.0
+     * @throws Exception if an error occurs while executing this test
+     * @since 1.0.0
      */
     @Test
     public void testMainShouldRunSpringApplicationBuilderInLocalEnvironment() throws Exception {
@@ -94,10 +94,10 @@ public class FireEmblemAPIApplicationTest {
     }
 
     /**
-     * Tests that the <code>main</code> method runs {@link SpringApplication} when this
-     * application is running in a deployed environment.
+     * Tests that the <code>main</code> method runs {@link SpringApplication} when this application is running in a
+     * deployed environment.
      *
-     * @since 1.0
+     * @since 1.0.0
      */
     @Test
     public void testMainShouldRunSpringApplicationInDeployedEnvironment() {

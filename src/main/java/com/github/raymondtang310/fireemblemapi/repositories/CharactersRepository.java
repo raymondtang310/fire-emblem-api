@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Raymond Tang
  * @version %I%, %G%
- * @since 1.0
+ * @since 1.0.0
  */
 public interface CharactersRepository extends MongoRepository<Character, String> {
     /**
@@ -22,7 +22,7 @@ public interface CharactersRepository extends MongoRepository<Character, String>
      *
      * @param name the name of the {@link Character}(s) to search for
      * @return a {@link List} of {@link Character}s that have the specified name
-     * @since 1.0
+     * @since 1.0.0
      */
     List<Character> findByName(String name);
 }

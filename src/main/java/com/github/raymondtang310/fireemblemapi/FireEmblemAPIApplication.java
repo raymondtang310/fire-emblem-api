@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  *
  * @author Raymond Tang
  * @version %I%, %G%
- * @since 1.0
+ * @since 1.0.0
  */
 // Disable automatic configuration of security so that login is not required
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
@@ -29,7 +29,7 @@ public class FireEmblemAPIApplication {
      * Runs this Spring Boot application with the specified arguments.
      *
      * @param args the arguments to be used to run this Spring Boot application
-     * @since 1.0
+     * @since 1.0.0
      */
     public static void main(String[] args) {
         // Set environment variables from dotenv file for local environment
